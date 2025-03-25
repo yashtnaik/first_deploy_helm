@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .values.deploymentName }}
+  name: {{ .Values.deploymentName }}
   labels:
     app: nginx
 spec:
-  replicas: {{ .values.replicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: nginx
@@ -15,7 +15,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: {{ .values.containers.name }}
-        image: {{ .values.image.repository }}:{{ .values.containers.tag }}
+      - name: {{ .Values.containers.name }}
+        image: {{ .Values.image.repository }}:{{ .Values.containers.tag }}
         ports:
-        - containerPort: {{ .values.containers.containerPort }}
+        - containerPort: {{ .Values.containers.containerPort }}
